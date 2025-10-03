@@ -33,7 +33,7 @@ const theme = createTheme({
   },
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Workshop app",
   description: "Application to manage current and past repairs and customers",
 };
