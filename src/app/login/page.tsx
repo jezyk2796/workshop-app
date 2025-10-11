@@ -1,11 +1,12 @@
 "use client";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import NextLink from "next/link";
 import {
   Box,
   Button,
   Checkbox,
   FormControlLabel,
-  Link,
+  Link as MUILink,
   Paper,
   TextField,
   Typography,
@@ -44,9 +45,9 @@ const LoginPage = () => {
             </Box>
             <Typography variant="caption" sx={{ mt: 2 }}>
               Don&apos;t have an account?
-              <Link href="" underline="none">
+              <MUILink component={NextLink} href="/sign-up" underline="none">
                 &nbsp;Click here to create one
-              </Link>
+              </MUILink>
             </Typography>
           </Box>
         </form>
