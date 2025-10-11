@@ -12,7 +12,7 @@ export const loginContainer: SxProps<Theme> = {
   padding: "20px",
   width: "400px",
   backgroundColor: "secondary.main",
-  color: "#fff",
+  color: "common.white",
 };
 
 export const header: SxProps<Theme> = {
@@ -28,23 +28,23 @@ export const formContainer: SxProps<Theme> = {
 export const loginTextField: SxProps<Theme> = {
   mt: 3,
   "& .MuiInputBase-input": {
-    color: "#fff",
+    color: "common.white",
   },
   "& .MuiInputLabel-root": {
-    color: "#fff",
+    color: "common.white",
   },
   "& .MuiInput-underline:before": {
-    borderBottomColor: "#fff",
+    borderBottomColor: "common.white",
   },
   "& .MuiInput-underline:hover:not(.Mui-disabled, .Mui-error):before": {
-    borderBottomColor: "#fff",
+    borderBottomColor: "common.white",
   },
 };
 
 export const loginCheckbox: SxProps<Theme> = {
-  color: "#fff",
+  color: "common.white",
 };
 
 export const signInInfoCaption: SxProps<Theme> = {
-  color: "red",
+  color: "error.main",
 };
