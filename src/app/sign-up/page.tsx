@@ -12,7 +12,7 @@ const SignUpPage = () => {
   return (
     <Box sx={styles.signUpBox}>
       <Paper sx={styles.signUPContainer}>
-        <Typography variant="h1" sx={styles.signUpHeader}>
+        <Typography variant="h1" sx={{ mb: 1 }}>
           Sign Up
         </Typography>
         <form>

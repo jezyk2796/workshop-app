@@ -21,7 +21,7 @@ const LoginPage = () => {
   return (
     <Box sx={styles.loginBox}>
       <Paper sx={styles.loginContainer}>
-        <Typography variant="h1" sx={styles.header}>
+        <Typography variant="h1" sx={{ mb: 1 }}>
           Sign In
         </Typography>
         <form>

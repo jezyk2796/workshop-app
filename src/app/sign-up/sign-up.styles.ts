@@ -15,11 +15,6 @@ export const signUPContainer: SxProps<Theme> = {
   color: "common.white",
 };
 
-export const signUpHeader: SxProps<Theme> = {
-  fontSize: "30px",
-  marginBottom: "10px",
-};
-
 export const signUpFormContainer: SxProps<Theme> = {
   display: "flex",
   flexDirection: "column",
