@@ -36,6 +36,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "var(--font-geist-sans), Arial, sans-serif",
+    h1: {
+      fontSize: "30px",
+    },
   },
 });
 

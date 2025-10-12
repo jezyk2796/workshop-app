@@ -15,11 +15,6 @@ export const loginContainer: SxProps<Theme> = {
   color: "common.white",
 };
 
-export const header: SxProps<Theme> = {
-  fontSize: "30px",
-  marginBottom: "10px",
-};
-
 export const formContainer: SxProps<Theme> = {
   display: "flex",
   flexDirection: "column",
