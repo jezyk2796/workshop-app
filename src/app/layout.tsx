@@ -19,13 +19,19 @@ const geistMono = Geist_Mono({
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FF8000",
+      main: "#ff8000",
     },
     secondary: {
       main: "#303030",
     },
     background: {
       default: "#eaeaea",
+    },
+    common: {
+      white: "#fff",
+    },
+    error: {
+      main: "#d32f2f",
     },
   },
   typography: {

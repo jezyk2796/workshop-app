@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db("workshop-app"); // albo process.env.MONGODB_DB
+    const db = client.db("workshop-app");
     const collections = await db.listCollections().toArray();
 
     return NextResponse.json({
