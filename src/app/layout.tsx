@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import "./globals.css";
+import { Toast } from "@/components/toast/Toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <CssBaseline />
           {children}
+          <Toast />
         </ThemeProvider>
       </body>
     </html>
