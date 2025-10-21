@@ -5,7 +5,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import "./globals.css";
-import { Toast } from "@/components/toast/Toast";
+import { Toast } from "@/components/Toast";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,17 @@ const metadata: Metadata = {
   description: "Application to manage current and past repairs and customers",
 };
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+    mutations: {
+      retry: false,
+    },
+  },
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,11 +68,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-          <Toast />
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+            <Toast />
+          </ThemeProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

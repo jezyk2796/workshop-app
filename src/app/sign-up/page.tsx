@@ -7,8 +7,10 @@ import * as styles from "./sign-up.styles";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, SignUpInputType } from "@/lib/schemas/sign-up.schema";
-import { useState } from "react";
 import { toast } from "react-toastify";
+import { useMutation } from "@tanstack/react-query";
+import { axiosClient } from "@/lib/api/axios";
+import type { AxiosError } from "axios";
 
 const metadata: Metadata = {
   title: "Sign Up",
@@ -19,46 +21,28 @@ const SignUpPage = () => {
     resolver: zodResolver(signUpSchema),
   });
 
-  const [isSigningUp, setIsSigningUp] = useState(false);
   const router = useRouter();
-
-  const onSubmit = async (data: SignUpInputType) => {
-    setIsSigningUp(true);
-
-    try {
-      const response = await fetch("/api/auth/sign-up", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-          password: data.password,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        toast.error(result.error || "Something went wrong");
-        return;
-      }
-
+  const { mutate, isPending } = useMutation({
+    mutationFn: async (data: SignUpInputType) => {
+      const response = await axiosClient.post("/auth/sign-up", data);
+      return response.data;
+    },
+    onSuccess: () => {
       toast.success("Account created successfully! You can now log in.");
       reset();
 
       setTimeout(() => {
         router.push("/login");
       }, 1500);
-    } catch (error) {
-      console.error("Sign up error:", error);
-      toast.error("Server error. Please try again later.");
-    } finally {
-      setIsSigningUp(false);
-    }
-  };
+    },
+    onError: (error) => {
+      const err = error as AxiosError<{ error: string }>;
+      const message = err.response?.data?.error || "Server error. Please try again later.";
+      toast.error(message);
+    },
+  });
+
+  const onSubmit = (data: SignUpInputType) => mutate(data);
 
   return (
     <Box sx={styles.signUpBox}>
@@ -111,7 +95,7 @@ const SignUpPage = () => {
               {...register("retypedPassword")}
             />
             <Box sx={{ display: "flex" }}>
-              <Button type="submit" variant="contained" disabled={isSigningUp} sx={{ mt: 5 }}>
+              <Button type="submit" variant="contained" disabled={isPending} sx={{ mt: 5 }}>
                 Sign Up
               </Button>
             </Box>
