@@ -6,7 +6,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import "./globals.css";
 import { Toast } from "@/components/Toast/Toast";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/lib/api/query-client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,17 +49,6 @@ const metadata: Metadata = {
   title: "Workshop app",
   description: "Application to manage current and past repairs and customers",
 };
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-    mutations: {
-      retry: false,
-    },
-  },
-});
 
 export default function RootLayout({
   children,
