@@ -5,7 +5,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import "./globals.css";
-import { Toast } from "@/components/toast/Toast";
+import { Toast } from "@/components/Toast/Toast";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/lib/api/query-client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,11 +58,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-          <Toast />
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+            <Toast />
+          </ThemeProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );
