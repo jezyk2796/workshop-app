@@ -11,7 +11,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import * as styles from "./login.styles";
+import * as styles from "./sign-in.styles";
 
 const metadata: Metadata = {
   title: "Sign In",
@@ -19,22 +19,22 @@ const metadata: Metadata = {
 
 const LoginPage = () => {
   return (
-    <Box sx={styles.loginBox}>
-      <Paper sx={styles.loginContainer}>
+    <Box sx={styles.signInBox}>
+      <Paper sx={styles.signInContainer}>
         <Typography variant="h1" sx={{ mb: 1 }}>
           Sign In
         </Typography>
         <form>
           <Box sx={styles.formContainer}>
-            <TextField placeholder="Email *" variant="standard" sx={styles.loginTextField} />
+            <TextField placeholder="Email *" variant="standard" sx={styles.signInTextField} />
             <TextField
               placeholder="Password *"
               type="password"
               variant="standard"
-              sx={styles.loginTextField}
+              sx={styles.signInTextField}
             />
             <FormControlLabel
-              control={<Checkbox sx={styles.loginCheckbox} />}
+              control={<Checkbox sx={styles.signInCheckbox} />}
               label="Remember me"
               sx={{ mt: 1 }}
             />
