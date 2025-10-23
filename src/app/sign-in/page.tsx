@@ -17,7 +17,7 @@ const metadata: Metadata = {
   title: "Sign In",
 };
 
-const LoginPage = () => {
+const SignInPage = () => {
   return (
     <Box sx={styles.signInBox}>
       <Paper sx={styles.signInContainer}>
@@ -56,4 +56,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignInPage;
