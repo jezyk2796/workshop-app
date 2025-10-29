@@ -1,6 +1,6 @@
 import { SxProps, Theme } from "@mui/material";
 
-export const loginBox: SxProps<Theme> = {
+export const signInBox: SxProps<Theme> = {
   width: "100vw",
   height: "100vh",
   display: "flex",
@@ -8,7 +8,7 @@ export const loginBox: SxProps<Theme> = {
   justifyContent: "center",
 };
 
-export const loginContainer: SxProps<Theme> = {
+export const signInContainer: SxProps<Theme> = {
   padding: "20px",
   width: "400px",
   backgroundColor: "secondary.main",
@@ -20,7 +20,7 @@ export const formContainer: SxProps<Theme> = {
   flexDirection: "column",
 };
 
-export const loginTextField: SxProps<Theme> = {
+export const signInTextField: SxProps<Theme> = {
   mt: 3,
   "& .MuiInputBase-input": {
     color: "common.white",
@@ -36,7 +36,7 @@ export const loginTextField: SxProps<Theme> = {
   },
 };
 
-export const loginCheckbox: SxProps<Theme> = {
+export const signInCheckbox: SxProps<Theme> = {
   color: "common.white",
 };
 

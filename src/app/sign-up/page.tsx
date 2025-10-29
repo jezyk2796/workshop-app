@@ -32,7 +32,7 @@ const SignUpPage = () => {
       reset();
 
       setTimeout(() => {
-        router.push("/login");
+        router.push("/sign-in");
       }, 1500);
     },
     onError: (error) => {
@@ -101,7 +101,7 @@ const SignUpPage = () => {
             </Box>
             <Typography variant="caption" sx={{ mt: 2 }}>
               Already have an account? Then
-              <MUILink component={NextLink} href="/login" underline="none">
+              <MUILink component={NextLink} href="/sign-in" underline="none">
                 &nbsp;Sign In
               </MUILink>
             </Typography>
