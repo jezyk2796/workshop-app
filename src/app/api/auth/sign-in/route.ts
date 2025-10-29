@@ -5,6 +5,9 @@ import clientPromise from "@/lib/db/mongodb";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+const REMEMBER_USER_MAX_AGE = 17 * 24 * 60 * 60; // 17 days
+const DEFAULT_MAX_AGE = 24 * 60 * 60; // 1 day
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -58,7 +61,7 @@ export async function POST(request: Request) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      maxAge: rememberUser ? 17 * 24 * 60 * 60 : 24 * 60 * 60, // 17 days or 1 day
+      maxAge: rememberUser ? REMEMBER_USER_MAX_AGE : DEFAULT_MAX_AGE,
     });
 
     return response;
